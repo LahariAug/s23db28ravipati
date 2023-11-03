@@ -2,4 +2,19 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Render Assignment #{title}
+  button(type="button", class="btn btn-secondary" onclick="goFaster()") Press Me
+  div(id="faster") <i>Increase the speed.</i>
+  a(href="hats") Hats
+  script.
+      var mph=20;
+      var change =1;
+      function goFaster(){
+         mph=mph+change;
+         change++;
+         var div=document.getElementById('faster');
+         div.textContent=" MPH "+ mph +" with change "+ change;
+      }
+
+  
+

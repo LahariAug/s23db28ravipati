@@ -1,0 +1,10 @@
+extends layout
+ 
+block content
+  h1= title
+  - let images = ["boater.jpg", "bucket.jpg", "cowboy.jpg", "fedora.jpg", "homburg.jpg"];
+  - for(let i=0; i<3; i++) {
+      -let random = Math.floor(Math.random()*5);
+      -let image = images[random];
+      img(src= "/images/"+image, alt= image, style={width: "300px",height: "300px"})
+  -}  

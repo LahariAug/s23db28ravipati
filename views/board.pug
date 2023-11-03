@@ -1,0 +1,34 @@
+extends layout
+
+block content
+    h1 Board Page
+    br    
+    p Rows: #{query.rows}
+    p Cols: #{query.cols}
+    br
+    - var rows = Number(query.rows);
+    - var cols = Number(query.cols);
+    - if (!Number.isInteger(rows) || !Number.isInteger(cols))
+        p Not an Integer
+    - else if (rows < 1 || rows > 10)
+        p Rows should be in the range of 1 to 10
+    - else if (cols < 1 || cols > 10)
+        p Columns should be in the range of 1 to 10
+    - else
+        table#outer
+            - for (let i = 1; i < rows; i++)  // Loop for rows
+                tr#middle
+                    - for (let j = 1; j < cols; j++)  // Loop for columns
+                        - if (i === j)
+                            td= 1
+                        - else if (i === j + 1)
+                            td= 2
+                        - else if (i === j - 1)
+                            td= i-1
+                        - else
+                            td= 0
+
+
+
+
+
