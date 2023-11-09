@@ -1,9 +1,6 @@
 var express = require('express');
+const hats_controlers= require('../controllers/hats');
 var router = express.Router();
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('hats', { title: 'Hat Search Results' });
-});
-
+/* GET Hats */
+router.get('/', hats_controlers.hats_view_all_Page );
 module.exports = router;
