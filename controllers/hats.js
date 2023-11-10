@@ -5,7 +5,7 @@ exports.hats_list = async function(req, res) {
         theHats = await Hat.find();
         res.send(theHats);
     } catch(err){
-        res.status(500);
+        ress.status(500);
         res.send(`{"error": ${err}}`);
     }
 };
@@ -13,7 +13,14 @@ exports.hats_list = async function(req, res) {
 //};
 // for a specific Hat.
 exports.hats_detail = async function(req, res) {
-    res.send('NOT IMPLEMENTED: Hats detail: ' + req.params.id);
+    console.log("detail" + req.params.id)
+    try {
+    result = await Hat.findById( req.params.id)
+    res.send(result)
+    } catch (error) {
+    res.status(500)
+    res.send(`{"error": document for id ${req.params.id} not found`);
+    }
 };
 // Handle Hat create on POST.
 
@@ -55,4 +62,5 @@ exports.hats_view_all_Page = async function(req, res) {
         res.status(500);
         res.send(`{"error": ${err}}`);
     }
+
 };
