@@ -45,8 +45,24 @@ exports.hats_delete = function(req, res) {
 res.send('NOT IMPLEMENTED: Hats delete DELETE ' + req.params.id);
 };
 // Handle Hat update form on PUT.
-exports.hats_update_put = function(req, res) {
-res.send('NOT IMPLEMENTED: Hats update PUT' + req.params.id);
+exports.hats_update_put = async function(req, res) {
+    console.log(`update on id ${req.params.id} with body
+    ${JSON.stringify(req.body)}`)
+    try {
+    let toUpdate = await Hat.findById( req.params.id)
+    // Do updates of properties
+    if(req.body.hat_name)
+    toUpdate.hat_name = req.body.hat_name;
+    if(req.body.color) toUpdate.color = req.body.color;
+    if(req.body.cost) toUpdate.cost = req.body.cost;
+    let result = await toUpdate.save();
+    console.log("Success " + result)
+    res.send(result)
+    } catch (err) {
+    res.status(500)
+    res.send(`{"error": ${err}: Update for id ${req.params.id}
+    failed`);
+    }
 };
 
 // VIEWS
