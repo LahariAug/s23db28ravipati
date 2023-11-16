@@ -1,0 +1,21 @@
+extends layout
+block content
+    h1= title
+ 
+    - let hatsid = toShow._id
+    - let hat_name  = toShow.hat_name
+    - let hat_color = toShow.hat_color
+    - let hat_cost = toShow.hat_cost
+    div
+       div.row
+            div(class='hatsAttr mr-3') Hat Id is: #{hatsid}
+            br
+            div.row
+            div(class='hatsAttr mr-3') Hat Name is: #{hat_name}
+            br
+
+            div.row
+            div(class='hatsAttr mr-3') Hat Color is: #{hat_color}
+            br
+            div.row
+            div(class='hatsAttr mr-3') Hat Cost is: #{hat_cost}

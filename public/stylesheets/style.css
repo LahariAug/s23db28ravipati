@@ -6,3 +6,16 @@ body {
 a {
   color: #00B7FF;
 }
+
+.hatsAttr {
+  background-color:lightcyan;
+  width: 120px;
+    text-align: justify;
+    color:red;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    width: 120px;
+    text-shadow: 7px 7px 10px greenyellow;
+    }
+  
+  
