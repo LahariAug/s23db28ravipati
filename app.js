@@ -54,7 +54,6 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 const connectionString = process.env.MONGO_CON
-mongoose = require('mongoose');
 mongoose.connect("mongodb+srv://Lahari:Lahari%401235@cluster0.rq2b14d.mongodb.net/?retryWrites=true&w=majority");
 
 //Get the default connection
