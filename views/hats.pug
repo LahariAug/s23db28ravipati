@@ -3,16 +3,17 @@ block content
   h1 Details of Hats 
   -
     let items = results
-  div(class = "container-fluid")
-    div(class = "row")
-      each item,index in items
-        div(class = "col-sm-2" onclick = `buy (${index})`) Name: #{item.hat_name}
-        div(class = "col-sm-2" onclick = `buy (${index})`) Color: #{item.hat_color}
-        div(class = "col-sm-2" onclick = `buy (${index})`) Cost: $#{item.hat_cost}
-        br
-        br
+  div(class="container-fluid")
+    div(class="row m-1")
+      each item in items
+        - let destination = `dispatch(\"/hats/update?id=${item._id}\")`
+        div(class="row-sm-2", class="m-1") Item #{item.hat_name}(#{item.hat_color}) is #{item.hat_cost}
+        button.btn( class="btn-primary ml-1", onclick= destination) Update
+
+
+
  
   script.
-    function buy(itemNum){
-      alert(`You purchased item ${itemNum+1}`)
+    function dispatch(path){
+      window.location.href=path
     }
