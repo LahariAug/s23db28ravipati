@@ -1,20 +1,12 @@
 extends layout
-
 block content
-  h1= title
-  p Render Assignment #{title}
-  button(type="button", class="btn btn-secondary" onclick="goFaster()") Press Me
-  div(id="faster") <i>Increase the speed.</i>
-  a(href="hats") Hats
-  script.
-      var mph=20;
-      var change =1;
-      function goFaster(){
-         mph=mph+change;
-         change++;
-         var div=document.getElementById('faster');
-         div.textContent=" MPH "+ mph +" with change "+ change;
-      }
-
-  
-
+  if (!user)
+    a(href="/login") Login
+    br
+    a(href="/register") Register
+  if (user)
+    p You are currently logged in as #{user.username}
+    a(href="/hats") Take me to Hats
+    br
+    a(href="/logout") Logout
+    

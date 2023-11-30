@@ -17,4 +17,7 @@ router.put('/hats/:id', hats_controller.hats_update_put);
 router.get('/hats/:id', hats_controller.hats_detail);
 // GET request for list of all Hat items.
 router.get('/hats', hats_controller.hats_list);
+/* GET update costume page */
+router.get('/update', hats_controller.hats_update_Page);
+
 module.exports = router;

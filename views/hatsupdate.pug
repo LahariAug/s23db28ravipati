@@ -4,33 +4,32 @@ block content
  
     if (toShow == null)
         h2 No instance to update
-   
     else
         - let hatid = toShow._id
         - let hat_name = toShow.hat_name
         - let hat_color = toShow.hat_color
         - let hat_cost = toShow.hat_cost
-       
+ 
         div.row(class='mb-2')
             div.mr-1 ID is
-            div #{hatid}
-       
+                div #{hatid}
+ 
         - let actionid = "/resource/hats/" + hatid
-       
-        form(id='HatsForm', action= actionid, method="PUT")
+ 
+        form(id='HatsForm', action=actionid, method="PUT")
             div.form-group
                 label.hatsAttr(for='hat_name') Hat Name
-                input#hat_name(type='text', name='hat_name',value= hat_name)
+                input#hat_name(type='text', name='hat_name', value=hat_name)
             div.form-group
                 label.hatsAttr(for='hat_color') Hat Color
-                input#hat_color(type='text', name='hat_color',value= hat_color)
+                input#hat_color(type='text', name='hat_color', value=hat_color)
             div.form-group
                 label.hatsAttr(for='hat_cost') Hat cost
-                input#hat_cost(type='number', name='hat_cost',value= hat_cost)
+                input#hat_cost(type='number', name='hat_cost', value=hat_cost)
                 br
                 br
             input(type="submit")
-           
+ 
             script.
                 document.forms['HatsForm'].addEventListener('submit', (event) => {
                     event.preventDefault();
@@ -40,10 +39,10 @@ block content
                     }).then((resp) => {
                         return resp.json(); // or resp.text() or whatever the server sends
                     }).then((body) => {
-                        alert("Update succeded")
+                        alert("Update succeeded");
                         // TODO handle body
                     }).catch((error) => {
                         // TODO handle error
-                        alert("Update failed " + error )
+                        alert("Update failed Limit Exceeded" );
                     });
                 });
